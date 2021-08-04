@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ES6 functions</title>
+</head>
+<body>
+
+<script>
+<h1>Function</h1>
+ 
+    globalvar =100;
+    num1=0
+    function addition(num1,num2){
+        return num1 + num2;
+    }
+    // arrow function
+    const add=(num1,num2)=>num1+num2;
+ 
+    console.log('arrow function',add(150,300));
+ 
+    // num1,num2 local variable
+    function subtraction(num1,num2){
+        result = num1-num2;
+        return result;
+    }
+ 
+    console.log('local variable ',num1);
+    result = addition(100,20);
+    console.log('Result of addition : ',result);
+    
+    function test(){
+        
+        globalvar = 999;
+        console.log('global var : test',globalvar);
+    }
+    test();
+    console.log('global var : after test',globalvar);
+   
+    // let - block level score
+    
+    const add=(num1,num2)=>num1+num2;
+ 
+    console.log('arrow function',add(150,300));
+
+    const x = (a,y) => a+y;
+    const xyx = (x , y) => x * y;
+    x(10,20);
+    xyx(20,5);
+    console.log(x);
+    console.log(xyx);
+
+    
+    var  tx = (a,y) => a+y;
+    var dt = tx(10,20);
+    console.log(tx(10,20));
+    console.log(dt);
+
+
+</script>
+</body>
+</html>

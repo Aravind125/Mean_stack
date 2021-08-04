@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ipl.css">
+</head>
+
+<body>
+
+    <div>
+        <h1>IPL</h1>
+
+        <label>Player Name</label>
+        <input type="text" name="name" id="name"><br><br>
+
+        <label for="Team">Team</label>
+        <input type="text" name="team" id="team"><br><br>
+
+        <label>Season</label>
+        <input type="text" name="season" id="season"><br><br>
+
+        <label>Runs</label>
+        <input type="text" name="runs" id="runs"><br><br>
+
+        <label>wickets</label>
+        <input type="text" name="wicket" id="wicket"><br><br>
+
+        <button onclick="save()">Save</button>
+
+    </div>
+
+    <div style="margin:50px; border:10px; display: inline-block;">
+
+        <div>
+            <table id="result" style="background-color: grey; color: white;"> </table>
+        </div>
+
+        <div>
+            <table id="orangecapholder" style="background-color: orange; color: white;"></table>
+        </div>
+
+        <div>
+            <table id="purplecapholder" style="background-color: purple; color: white;"> </table>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        playerlist = [];
+        function cricketplayer(name, team, season, runs, wicket) {
+            this.name = name;
+            this.team = team;
+            this.season = season;
+            this.runs = runs;
+            this.wicket = wicket;
+        }
+
+        function orangeCap() {
+            playerlist.sort((a, b) => {
+                return b.runs - a.runs;
+            });
+            var data = '';
+            for (var i = 0; i < playerlist.length; i++) {
+                data = data + '<tr>';
+                data = data + '<td>' + playerlist[i].name + '</td>' + '<td>' + playerlist[i].team + '</td>' + '<td>' + playerlist[i].runs + '</td>';
+                data = data + '</tr>';
+            }
+            document.getElementById('orangecapholder').innerHTML = data;
+        }
+
+        function purpleCap() {
+
+            playerlist.sort((a, b) => {
+                return b.wicket - a.wicket;
+            });
+            var data = '';
+            for (var i = 0; i < playerlist.length; i++) {
+                data = data + '<tr>';
+                data = data + '<td>' + playerlist[i].name + '</td>' + '<td>' + playerlist[i].team + '</td>' + '<td>' + playerlist[i].wicket + '</td>';
+                data = data + '</tr>';
+            }
+            document.getElementById('purplecapholder').innerHTML = data;
+        }
+
+        function displayplayerlist() {
+            var data = '';
+            for (var i = 0; i < playerlist.length; i++) {
+                data = data + '<tr>';
+                data = data + '<td>' + playerlist[i].name + '</td>' + '<td>' + playerlist[i].team + '</td>' + '<td>' + playerlist[i].season
+                    + '</td>' + '<td>' + playerlist[i].runs + '</td>' + '<td>' + playerlist[i].wicket + '</td>';
+                data = data + '</tr>';
+            }
+            document.getElementById('result').innerHTML = data;
+        }
+        function save() {
+            name = document.getElementById("name").value;
+            team = document.getElementById("team").value;
+            season = document.getElementById("season").value;
+            runs = document.getElementById("runs").value;
+            wicket = document.getElementById("wicket").value;
+            player = new cricketplayer(name, team, season, runs, wicket);
+            playerlist.push(player);
+            displayplayerlist();
+            purpleCap();
+            orangeCap();
+        }
+
+    </script>
+
+</body>
+
+</html>

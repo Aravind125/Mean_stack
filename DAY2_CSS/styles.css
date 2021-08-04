@@ -1,0 +1,90 @@
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    border-style: solid;
+    border-width: 5px;
+    margin: 10px;
+    padding: 2px;
+    font-family: Arial;
+}
+
+.header {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    padding: 32px;
+}
+
+h1 {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: red;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+}
+h2{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: red;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    width:350px;
+}
+h3{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: blue;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    width:150px;
+}
+table{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;  
+}
+@media only screen and (min-width: 600px) {
+div {
+    width: 45%;
+    height:auto;
+    background-color: white;
+    border: 5px gray;
+    margin: 2px;
+    padding: 2px;
+    display: inline-block;     
+}
+}
+@media only screen and (min-width:768px) {
+    div {
+        width: 23%;
+        height:auto;
+        background-color: white;
+        border: 5px gray;
+        margin: 2px;
+        padding: 2px;
+        display: inline-block;     
+    }
+}
+@media only screen and (min-width: 992px) {
+    div {
+        width: 20%;
+        height:auto;
+        background-color: white;
+        border: 5px gray;
+        margin: 2px;
+        padding: 2px;
+        display: inline-block;     
+    }
+}
+
+
+

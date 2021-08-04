@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona Patient Management</title>
+
+    <style>
+        body {
+            margin: 5px;
+            padding: 32px;
+        }
+
+        label {
+            text-align: left;
+            float: left;
+            width: 250px;
+        }
+
+        input[type=submit] {
+            width: 10%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=radio] {
+            text-align: center;
+            float: left;
+            width: 50px;
+        }
+
+        input[type=radio] {
+            text-align: center;
+            float: left;
+        }
+
+        input {
+            float: left;
+            width: 280px;
+        }
+
+        select {
+            text-align: center;
+            float: left;
+            width: 280px;
+        }
+    </style>
+</head>
+
+<body style="background-color: rgb(226, 230, 235);">
+    <fieldset>
+        <legend></legend>
+        <h1 style="text-align: center;">Corona Patient Management:</h1>
+
+        <form action="success.html" style="text-align:justify;" method="post">
+
+
+            <label>Enter the patient name :</label>
+            <input type="text" id="pname" name="pname" placeholder="Name of the patient" maxlength="50" autofocus>
+            <br><br>
+
+            <label>Gender :</label>
+            <label style="width: 80px;">MALE :</label>
+            <input type="radio" id="name" name="name" value="MALE">
+            <label style="width: 80px;">FEMALE :</label>
+            <input type="radio" id="name" name="name" value="FEMALE"> <br><br>
+
+            <label>Location :</label>
+            <select id="location" style="text-align: center;">
+                <option value="bng">Chennai</option>
+                <option value="chn">Pune</option>
+                <option value="hyd">Hyderabad</option>
+            </select> <br><br>
+
+            <label>PinCode :</label>
+            <input type="text" id="number" name="number" maxlength="6"> <br><br>
+
+            <label>Aadhar number :</label>
+            <input type="text" id="number" name="number" maxlength="10"> <br><br>
+
+            <label>Mobile number :</label>
+            <input type="text" id="number" name="number" maxlength="10" pattern="[0-9]{10}"> <br><br>
+
+            <label>Attender Name :</label>
+            <input type="text" id="aname" name="aname"><br><br>
+
+            <label>Date and Time of Request :</label>
+            <input type="date" id="date" name="date"> <br><br>
+
+            <label>SP02 Level(between 0 and 100) :</label>
+            <input type="range" id="vol" name="vol" min="0" max="100"><br><br>
+
+            <label>Type of Hospital :</label>
+            <input list="Hospital" name="Hospital">
+            <datalist id="Hospital">
+                <option value="Govarment">
+                <option value="Private">
+                <option value="Care-Center">
+            </datalist> <br><br>
+
+            <input type="submit" value="submit"><br><br>
+        </form>
+
+    </fieldset>
+
+</body>
+
+</html>

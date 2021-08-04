@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    function employee(id,name,age,salary,des){
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+        this.des = des;
+        this.getSalary = function(){
+            return this.salary;
+        }
+        this.getdes = function(){
+            return this.des;
+        }
+    }
+
+
+    emp1 = new employee(1,"AK",27,"100","devloper");
+    emp2 = new employee(2,"pK",27,"200","devloper");
+    emp3 = new employee(3,"cK",27,"300","devloper");
+
+    emplist = [];
+    emplist.push(emp1);
+    emplist.push(emp2);
+    emplist.push(emp3);
+
+    totalsalry = 0;
+
+    for(i= 0; i< emplist.length; i++){
+        totalsalry = emplist[i].getSalary();
+    }
+    console.log("totalsalry",totalsalry);
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wether</title>
+</head>
+
+<body>
+
+    <form class="form-horizontal" style="text-align: center;">
+        <h1>Wether Report</h1>
+        <input type="Text" id="location" name="location">Location :
+        <button onclick="getWether()"> Submit</button>
+
+    </form>
+
+    <script>
+
+        function getWether(){
+            var loc =  document.getElementById("location").value;
+            console.log("loc",loc);
+            console.log("Location is : ", loc);
+    
+        }
+
+    </script>
+</body>
+
+</html>

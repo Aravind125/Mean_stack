@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherInformation</title>
+</head>
+<body">
+    <h1>Weather Information</h1>
+    <br><br>
+    
+    <Label>Enter Location</label>
+        <br><br>
+    <input type="Text" id="location">
+    <br><br>
+    
+    <button id="submit" onclick="getWeatherfunction()">Submit</button>
+    <table id="result">
+    </table>
+    <script>
+        var weatherdetails= [];
+        function getWeatherfunction(){
+        
+        	var location = document.getElementById("location").value
+            console.log("Location is : ", location);
+		
+        url = 'https://api.openweathermap.org/data/2.5/weather?q=' + location + '&appid=64aa776fc770b99fba7e0ae727b9d291&units=metric'
+        
+        console.log("Url is : ", url);
+        
+        getWeatherinfo();
+		
+	}
+
+	function getWeatherinfo(){
+            fetch(url)
+            .then(response=>response.json())
+            .then(json=>displayData(json))
+        }
+
+	function displayData(jsondata){
+            weatherdetails = jsondata;
+            console.log("displayData : ",weatherdetails);
+            
+            var data="";
+
+            var data ="<ul>";
+                data = data + "<li>Name :"+ weatherdetails.name +"</li>"+ "<li>Lat :"+ weatherdetails.coord.lat +"</li>";
+                data = data + "<li>Lon :"+ weatherdetails.coord.lon +"</li>";
+                data = data + "<li>Temp :"+ weatherdetails.main.temp +"</li>";
+        
+                data = data + "<li>Pressure :"+ weatherdetails.main.pressure +"</li>";
+                data = data + "<li>Humidity :"+ weatherdetails.main.humidity +"</li>";
+                data = data + "<li>Speed :"+ weatherdetails.wind.speed +"</li>";
+                data = data +"</ul>";
+            
+            document.getElementById("result").innerHTML=data;
+         
+         }
+        
+         
+               
+    </script>
+</body>
+</html>

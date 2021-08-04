@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <label>Number 1: <input id="first"></label>
+    <label>Number 2: <input id="second"></label>
+    <button onclick="addition()">Add</button>
+    <button onclick="subtration()">sub</button>
+    <button onclick="multi()">mul</button>
+    <button onclick="div()">div</button>
+    <label>Total = <input id="answer"></label>
+
+
+    <script>
+
+        function addition() {
+            var numOne, numTwo, sum;
+            numOne = parseInt(document.getElementById("first").value);
+            numTwo = parseInt(document.getElementById("second").value);
+            sum = numOne + numTwo;
+            document.getElementById("answer").value = sum;
+        }
+
+        function subtration() {
+            var numOne, numTwo, sum;
+            numOne = parseInt(document.getElementById("first").value);
+            numTwo = parseInt(document.getElementById("second").value);
+            sum = numOne - numTwo;
+            document.getElementById("answer").value = sum;
+        }
+
+        function multi() {
+            var numOne, numTwo, sum;
+            numOne = parseInt(document.getElementById("first").value);
+            numTwo = parseInt(document.getElementById("second").value);
+            sum = numOne * numTwo;
+            document.getElementById("answer").value = sum;
+        }
+
+        function div() {
+            var numOne, numTwo, sum;
+            numOne = parseInt(document.getElementById("first").value);
+            numTwo = parseInt(document.getElementById("second").value);
+            sum = numOne / numTwo;
+            document.getElementById("answer").value = sum;
+        }
+
+    </script>
+
+</body>
+
+</html>
