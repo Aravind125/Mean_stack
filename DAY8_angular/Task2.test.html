@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>CORONA DASHBOARD</title>
+</head>
+
+<body ng-app="coronaApp" ng-controller="coronaController" style="text-align: center; background-color: gray;">
+
+    <h2>CORONA DASHBOARD</h2>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="number">State Name:</label>
+        <div class="col-sm-10">
+            <input type="text" name="state" id="state" ng-model="state" placeholder="Enter State Name">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="number">Total:</label>
+        <div class="col-sm-10">
+            <input type="number" name="totalnumber" id="totalnumber" ng-model="totalnumber"
+                placeholder="Enter Total Number of counts">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="number">Positive Cases:</label>
+        <div class="col-sm-10">
+            <input type="number" name="positive" id="positive" ng-model="positive" placeholder="Positive Cases"><br><br>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="number">Recovered Cases:</label>
+        <div class="col-sm-10">
+            <input type="number" name="recovered" id="recovered" ng-model="recovered"
+                placeholder="Recovered Cases"><br><br>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2" for="number">Death counts:</label>
+        <div class="col-sm-10">
+            <input type="number" name="death" id="death" ng-model="death" placeholder="Death Count"><br><br>
+        </div>
+    </div>
+    <div class="form-group">
+        <button ng-click="coronalist()" name="submit" id="submit">Submit</button>
+    </div>
+
+    <div class="form-group">
+
+        <table>
+            <tr>
+                <th>State</th>
+                <th>Totalcount</th>
+                <th>positive</th>
+            </tr>
+            <tbody ng-repeat="m in $scope.coronalist">
+                <tr>
+                    <td>{{m.State}}</td>
+                    <td>{{m.totalcases}}</td>
+                    <td>{{m.positive}}</td>
+                    <td>{{m.recovered}}</td>
+                    <td>{{m.death}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+
+        var app = angular.module("coronaApp", []);
+        app.controller("coronaController", function ($scope) {
+
+
+            function displaycoronalist() {
+                var data = '';
+                var data = "<tr> <td> State </td> <td>Total cases</td> <td>positive Cases</td> <td>Recovered cases</td> <td>Death</td> </tr>";
+                for (var i = 0; i < coronaList.length; i++) {
+                    data = data + '<tr>';
+                    data = data + '<td>' + coronaList[i].state + '</td>' + '<td>' + coronaList[i].totalcases + '</td>' + '<td>' + coronaList[i].positive
+                        + '</td>' + '<td>' + coronaList[i].recovered + '</td>' + '<td>' + coronaList[i].death + '</td>';
+                    data = data + '</tr>';
+                }
+                document.getElementById('result').innerHTML = data;
+            }
+
+            $scope.coronaList = [];
+            $scope.coronalist = function () {
+                todayList = [];
+                todayList.state = state.value;
+                todayList.totalcases = totalnumber.value;
+                todayList.positive = positive.value;
+                todayList.recovered = recovered.value;
+                todayList.death = death.value;
+
+                $scope.coronaList.push(todayList);
+                console.log("coronaList",  $scope.coronaList);
+                //displaycoronalist();
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

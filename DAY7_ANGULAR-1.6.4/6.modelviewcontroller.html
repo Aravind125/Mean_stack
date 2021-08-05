@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+<h1>Module and Controller</h1>
+<div ng-app="myapp" ng-controller="mycontroller">
+    {{firstName +" - "+lastName}}
+</div>
+<script>
+    var app = angular.module("myapp",[]);
+    app.controller("mycontroller",function($scope){
+        $scope.firstName='Raghu';
+        $scope.lastName='Prasad';
+    });
+</script>
+</body>
+</html>

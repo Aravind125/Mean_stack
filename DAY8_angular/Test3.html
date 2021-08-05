@@ -1,0 +1,136 @@
+<!DOCTYPEhtml>
+    <htmllang="en">
+
+        <head>
+            <metac harset="UTF-8">
+                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <script src="https: //ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js">
+                </script>
+                <title>Corona Dashboard</title>
+
+                <style>
+                    #result {
+                        ​​​​​​​​ font-family: Arial, Helvetica, sans-serif;
+                        border-collapse: collapse;
+                        width: 50%;
+                    }
+
+                    ​​​​​​​​ #resulttd,
+                    #resultth {
+                        ​​​​​​​​ border: 1px solid #ddd;
+                        padding: 10px;
+                    }
+
+                    ​​​​​​​​ #resulttr:nth-child(even) {
+                        ​​​​​​​​background-color: #f2f2f2;
+                    }
+
+                    ​​​​​​​​ #resulttr:hover {
+                        ​​​​​​​​background-color: #ddd;
+                    }
+
+                    ​​​​​​​​ #resultth {
+                        ​​​​​​​​ padding-top: 12px;
+                        padding-bottom: 12px;
+                        text-align: left;
+                        background-color: darkblue;
+                        color: white;
+                    }
+
+                    ​​​​​​​​ input {
+                        ​​​​​​​​ widows: 20%;
+                        height: 25px;
+                    }
+
+                    ​​​​​​​​ label {
+                        ​​​​​​​​ padding-right: 1%;
+                    }
+
+                    ​​​​​​​​
+                </style>
+
+        </head>
+
+        <body ng-app="coronaApp" ng-controller="coronaController">
+            <h1style="background-color: darkcyan; width:100%; text-align:center">Corona Dashboard</h1>
+
+                <labelname=state>State Name</label>
+                    <inputtype="text"name="StateName"id="StateName"ng-model="StateName"placeholder="Enter State Name">
+                        <br><br>
+                        <labelname=tot>Total Cases</label>
+                            <inputtype="text"name="Total"id="Total"ng-model="Total"placeholder="Total Cases"><br><br>
+                                <labelname="active">Active Cases</label>
+                                    <inputtype="text"name="Active"id="Active"ng-model="Active"placeholder="Active
+                                        Cases"><br><br>
+                                        <labelname="recover">Recovered</label>
+                                            <inputtype="text"name="Recovered"id="Recovered"ng-model="Recovered"placeholder="Recovered
+                                                Cases"><br><br>
+                                                <labelname=deadl>Dead</label>
+                                                    <inputtype="text"name="Dead"id="Dead"ng-model="Dead"placeholder="Dead
+                                                        Cases"><br><br>
+
+                                                        <buttonng-click="Submit()">Submit</button>
+                                                            <buttonng-click="Clear()">Clear</button>
+
+                                                                <br>
+                                                                <br>
+                                                                <tableid="result">
+                                                                    <tr>
+                                                                        <th>State Name</th>
+                                                                        <th>Total</th>
+                                                                        <th>Active</th>
+                                                                        <th>Recovered</th>
+                                                                        <th>Dead</th>
+                                                                    </tr>
+                                                                    <trng-repeat="obj in coronaData">
+                                                                        <td>{​​​​​​​​{​​​​​​​​obj.StateName}​​​​​​​​}​​​​​​​​
+                                                                        </td>
+                                                                        <td>{​​​​​​​​{​​​​​​​​obj.Total}​​​​​​​​}​​​​​​​​
+                                                                        </td>
+                                                                        <td>{​​​​​​​​{​​​​​​​​obj.Active}​​​​​​​​}​​​​​​​​
+                                                                        </td>
+                                                                        <td>{​​​​​​​​{​​​​​​​​obj.Recovered}​​​​​​​​}​​​​​​​​
+                                                                        </td>
+                                                                        <td>{​​​​​​​​{​​​​​​​​obj.Dead}​​​​​​​​}​​​​​​​​
+                                                                        </td>
+                                                                        </tr>
+
+                                                                        </table>
+                                                                        <script>
+                                                                            var app = angular.module("coronaApp", []);
+                                                                            app.controller("coronaController", function ($scope) {
+
+
+                                                                                $scope.coronaData = [];
+
+                                                                                console.log($scope.coronaData);
+                                                                                $scope.Submit = function () {
+                                                                                    objarr = new coronalist($scope.StateName, $scope.Total, $scope.Active, $scope.Recovered, $scope.Dead);
+                                                                                    $scope.coronaData.push(objarr);
+                                                                                    console.log($scope.coronaData);
+                                                                                    $scope.Clear();
+
+                                                                                };
+                                                                                $scope.Clear = function () {
+                                                                                    $scope.StateName = '';
+                                                                                    $scope.Total = 0;
+                                                                                    $scope.Active = 0;
+                                                                                    $scope.Recovered = 0;
+                                                                                    $scope.Dead = 0;
+
+
+                                                                                };
+                                                                            });
+
+                                                                            function coronalist(StateName, Total, Active, Recovered, Dead) {
+                                                                                this.StateName = StateName;
+                                                                                this.Total = Total;
+                                                                                this.Active = Active;
+                                                                                this.Recovered = Recovered;
+                                                                                this.Dead = Dead;
+                                                                            };
+                                                                        </script>
+        </body>
+
+        </html>
